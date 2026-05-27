@@ -11,7 +11,7 @@ A aplicação atua como o cartão de visitas digital da marca, apresentando os s
 
 ## 🌐 Link do Projeto
 
-🔗 Acesse a aplicação publicada: [Visitar Amigo Verde](https://seu-link-de-hospedagem-aqui.com)
+🔗 Acesse a aplicação publicada: [Visitar Amigo Verde](https://amigo-verdepetshop.vercel.app)
 
 ---
 
@@ -26,7 +26,7 @@ A aplicação atua como o cartão de visitas digital da marca, apresentando os s
 ![Serviços e Cuidados](./src/assets/preview/servicos.png)
 
 ### Diferencial Amigo Verde
-![Diferencial Amigo Verde](./src/assets/preview/diferencial.png)
+![Diferencial Amigo Verde](./src/assets/preview/Diferencial.png)
 
 ---
 
