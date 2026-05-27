@@ -3,12 +3,12 @@ import Badge from "../../components/Homebadge";
 import { AuroraText } from "@/components/ui/aurora-text";
 import Buttonsmenu from "../../components/Buttonsmenu";
 import Buttonsoutline from "../../components/Buttonsoutline";
-import { ArrowRight, Wheat, BriefcaseMedical, ShieldCheck, Droplets, CheckCircle2,Stethoscope,House } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight, Wheat, BriefcaseMedical, ShieldCheck, Droplets, CheckCircle2, Stethoscope, House } from "lucide-react";
 import DogImage from "../../assets/Dogs.png";
 import BanhoImage from "../../assets/Banho.png";
 import Clinica from "../../assets/Clinica.png";
 import Hotel from "../../assets/Hotel.png";
-
 
 function Home() {
   const diferencialCardClass = "flex flex-col items-center md:items-start text-center md:text-left gap-4 p-4 md:p-8 shadow-xl rounded-xl bg-white";
@@ -91,7 +91,7 @@ function Home() {
               A Diferença Amigo Verde
             </h2>
             <p className="max-w-2xl text-base md:text-lg text-stone-600 font-normal font-['Hanken_Grotesk'] leading-relaxed">
-              Nossos pilares de cuidado guarantees que seu pet receba não apenas
+              Nossos pilares de cuidado garantem que seu pet receba não apenas
               um serviço, mas uma experiência de bem-estar completa.
             </p>
           </motion.div>
@@ -187,12 +187,19 @@ function Home() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-1 gap-12 w-full mt-12">
-            <article className="w-full flex flex-col md:flex-row bg-[#FDFBF9] rounded-3xl overflow-hidden shadow-lg border border-stone-100">
+            
+            <motion.article 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="w-full flex flex-col md:flex-row bg-[#FDFBF9] rounded-3xl overflow-hidden shadow-lg border border-stone-100"
+            >
               <div className="w-full md:w-3/5 p-4 md:p-6">
                 <div className="w-full h-80 md:h-112.5 overflow-hidden rounded-2xl border-2 border-dashed border-blue-400 p-2 bg-stone-50">
                   <img 
                     src={BanhoImage} 
-                    alt="Veterinária banhando um cachorro Golden Retriever no Amigo Verde" 
+                    alt="Veterinária banhando um cachorro Golden Retriever" 
                     className="w-full h-full object-cover rounded-xl" 
                   />
                 </div>
@@ -234,16 +241,23 @@ function Home() {
                 </ul>
 
                 <div className="mt-4">
-                  <button className="inline-flex items-center justify-center border border-[#1A2E20] text-[#1A2E20] hover:bg-[#1A2E20] hover:text-white rounded-full px-7 py-3 text-sm font-semibold font-['Hanken_Grotesk'] transition-colors duration-300">
+                  <Link to={"https://w.app/amigoverde"}>
+                  <button className="inline-flex items-center justify-center border border-[#1A2E20] text-[#1A2E20] hover:bg-[#1A2E20] hover:text-white rounded-full px-7 py-3 text-sm font-semibold font-['Hanken_Grotesk'] transition-colors duration-300 cursor-pointer">
                     Agendar Spa
                   </button>
+                  </Link>
                 </div>
               </div>
-            </article>
+            </motion.article>
 
-            <article className="w-full flex flex-col md:flex-row bg-[#FDFBF9] rounded-3xl overflow-hidden shadow-lg border border-stone-100">
-
-              <div className="w-full md:w-2/5 flex flex-col justify-center gap-6 p-8 md:p-12 text-left">
+            <motion.article 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="w-full flex flex-col md:flex-row bg-[#FDFBF9] rounded-3xl overflow-hidden shadow-lg border border-stone-100"
+            >
+              <div className="w-full md:w-2/5 flex flex-col justify-center gap-6 p-8 md:p-12 text-left order-2 md:order-1">
                 <div>
                   <span className="inline-flex items-center bg-gray-100 text-stone-700 text-xs font-medium px-3 py-1 rounded-full">
                     Saúde Integrativa
@@ -259,8 +273,8 @@ function Home() {
 
                 <p className="text-stone-700 text-sm font-normal font-['Hanken_Grotesk'] leading-relaxed max-w-xl">
                   Consultas especializadas que unem o melhor da medicina veterinária
-moderna com abordagens naturais. Prevenção, nutrição clínica e diagnóstico
-preciso em um ambiente que transmite calma.
+                  moderna com abordagens naturais. Prevenção, nutrição clínica e diagnóstico
+                  preciso em um ambiente que transmite calma.
                 </p>
 
                 <ul className="space-y-4">
@@ -284,23 +298,29 @@ preciso em um ambiente que transmite calma.
                   </button>
                 </div>
               </div>
-              <div className="w-full md:w-3/5 p-4 md:p-6">
+              <div className="w-full md:w-3/5 p-4 md:p-6 order-1 md:order-2">
                 <div className="w-full h-80 md:h-112.5 overflow-hidden rounded-2xl border-2 border-dashed border-blue-400 p-2 bg-stone-50">
                   <img 
                     src={Clinica} 
-                    alt="Veterinária banhando um cachorro Golden Retriever no Amigo Verde" 
+                    alt="Veterinário examinando um pet com cuidado" 
                     className="w-full h-full object-cover rounded-xl" 
                   />
                 </div>
               </div>
-            </article>
+            </motion.article>
 
-            <article className="w-full flex flex-col md:flex-row bg-[#FDFBF9] rounded-3xl overflow-hidden shadow-lg border border-stone-100">
+            <motion.article 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="w-full flex flex-col md:flex-row bg-[#FDFBF9] rounded-3xl overflow-hidden shadow-lg border border-stone-100"
+            >
               <div className="w-full md:w-3/5 p-4 md:p-6">
                 <div className="w-full h-80 md:h-112.5 overflow-hidden rounded-2xl border-2 border-dashed border-blue-400 p-2 bg-stone-50">
                   <img 
                     src={Hotel} 
-                    alt="Veterinária banhando um cachorro Golden Retriever no Amigo Verde" 
+                    alt="Cachorros socializando felizes na creche" 
                     className="w-full h-full object-cover rounded-xl" 
                   />
                 </div>
@@ -322,8 +342,8 @@ preciso em um ambiente que transmite calma.
 
                 <p className="text-stone-700 text-sm font-normal font-['Hanken_Grotesk'] leading-relaxed max-w-xl">
                   Um espaço de socialização desenhado para o bem-estar mental e físico do
-seu pet. Áreas separadas por porte e temperamento, com recreação
-monitorada por especialistas em comportamento animal.
+                  seu pet. Áreas separadas por porte e temperamento, com recreação
+                  monitorada por especialistas em comportamento animal.
                 </p>
 
                 <ul className="space-y-4">
@@ -347,10 +367,11 @@ monitorada por especialistas em comportamento animal.
                   </button>
                 </div>
               </div>
-            </article>
+            </motion.article>
           </div>
         </div>
       </section>
+
 
     </main>
   );
