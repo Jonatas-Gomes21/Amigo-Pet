@@ -1,8 +1,8 @@
-# 🌿 Amigo Verde
+# 🌿 Amigo Pet
 
 > 🚧 **Status do Projeto:** Em desenvolvimento 🚧
 
-Amigo Verde é um projeto de desenvolvimento web de uma **Landing Page** focada no **nicho pet**.  
+Amigo Pet é um projeto de desenvolvimento web de uma **Landing Page** focada no **nicho pet**.  
 O objetivo do projeto foi criar uma plataforma que transmita uma experiência premium de cuidado animal, priorizando a vitalidade dos pets e combinando elementos de amor e natureza em sua identidade visual.
 
 A aplicação atua como o cartão de visitas digital da marca, apresentando os serviços e o posicionamento do empreendimento de forma moderna e atraente.
@@ -11,28 +11,33 @@ A aplicação atua como o cartão de visitas digital da marca, apresentando os s
 
 ## 🌐 Link do Projeto
 
-🔗 Acesse a aplicação publicada: [Visitar Amigo Verde](https://amigo-verdepetshop.vercel.app)
+🔗 Acesse a aplicação publicada: [Visitar Amigo Pet](https://amigo-verdepetshop.vercel.app)
 
 ---
 
 ## 📸 Preview do Projeto
 
 ### Home
+
 ![Home](./src/assets/preview/home.png)
+
 ##
+
 ![Home](./src/assets/preview/Gravacao.gif)
 
 ### Serviços e Cuidados
+
 ![Serviços e Cuidados](./src/assets/preview/servicos.png)
 
-### Diferencial Amigo Verde
-![Diferencial Amigo Verde](./src/assets/preview/Diferencial.png)
+### Diferencial Amigo Pet
+
+![Diferencial Amigo Pet](./src/assets/preview/Diferencial.png)
 
 ---
 
 ## 🎯 Objetivo do Projeto
 
-O intuito do Amigo Verde foi consolidar a presença digital da marca, onde o foco principal é:
+O intuito do Amigo Pet foi consolidar a presença digital da marca, onde o foco principal é:
 
 - Apresentar os serviços premium de cuidado animal de forma clara
 - Transmitir os valores da marca (amor, natureza e vitalidade) através do design
@@ -45,11 +50,11 @@ Além disso, o projeto teve como foco técnico a construção de uma interface c
 ## ⚙️ Funcionalidades
 
 - ✅ Interface 100% responsiva (Mobile First)
-- ✅ Animações de transição e scroll 
+- ✅ Animações de transição e scroll
 - ✅ Otimização de SEO e semântica web
 - ✅ Design moderno e focado em UI/UX
 - ✅ Apresentação de serviços e informações da marca
-- ⏳ *Novas funcionalidades em desenvolvimento...*
+- ⏳ _Novas funcionalidades em desenvolvimento..._
 
 ---
 
