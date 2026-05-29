@@ -11,7 +11,7 @@ A aplicação atua como o cartão de visitas digital da marca, apresentando os s
 
 ## 🌐 Link do Projeto
 
-🔗 Acesse a aplicação publicada: [Visitar Amigo Pet](https://amigo-verdepetshop.vercel.app)
+🔗 Acesse a aplicação publicada: [Visitar Amigo Pet](https://amigo-petshop.vercel.app)
 
 ---
 
