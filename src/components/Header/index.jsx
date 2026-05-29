@@ -24,7 +24,7 @@ function Header() {
           className="mr-2 size-5 sm:h-9"
         />
         <span className="self-center whitespace-nowrap text-2xl font-bold font-['Quicksand'] text-lime-950">
-          Amigo Verde
+          Amigo Pet
         </span>
       </NavbarBrand>
 
