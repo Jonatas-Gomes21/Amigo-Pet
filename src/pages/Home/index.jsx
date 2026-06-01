@@ -5,6 +5,7 @@ import Buttonsmenu from "../../components/Buttonsmenu";
 import Buttonsoutline from "../../components/Buttonsoutline";
 import { Link } from "react-router-dom";
 import {
+  MessageSquareQuote,
   ArrowRight,
   Wheat,
   BriefcaseMedical,
@@ -16,14 +17,22 @@ import {
   Sprout,
 } from "lucide-react";
 import DogImage from "../../assets/Dogs.png";
+import Proposito from "../../assets/proposito.png";
+import female from "../../assets/female.png";
+import male from "../../assets/male.png";
 import BanhoImage from "../../assets/Banho.png";
 import Clinica from "../../assets/Clinica.png";
 import Hotel from "../../assets/Hotel.png";
 import { ScrollProgress } from "../../components/ui/scroll-progress";
+import { AvatarCircles } from "@/components/ui/avatar-circles";
+import { BorderBeam } from "@/components/ui/border-beam"
 
 function Home() {
   const diferencialCardClass =
     "flex flex-col items-center md:items-start text-center md:text-left gap-4 p-4 md:p-8 shadow-xl rounded-xl bg-white";
+
+  const depoimentCardclass =
+    "flex flex-col items-center text-center gap-4 p-4 md:p-8 shadow-xl rounded-xl bg-stone-600/15 md:bg-stone-600/20";
 
   return (
     <main className="w-full bg-white">
@@ -387,7 +396,7 @@ function Home() {
       </section>
 
       <section className="w-full flex justify-center items-center px-6 py-20 md:py-28 bg-green-300/20">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -395,24 +404,117 @@ function Home() {
           className="w-full max-w-4xl flex flex-col justify-center items-center bg-white rounded-3xl shadow-[0px_10px_40px_-10px_rgba(45,90,39,0.08)] p-8 md:p-16 gap-6"
         >
           <Sprout className="size-8 text-[#154212]" />
-          
+
           <h2 className="text-center text-stone-900 text-3xl md:text-4xl font-semibold font-['Quicksand'] leading-tight max-w-lg">
             Nossa Missão: Reconectar Pets à Natureza
           </h2>
-          
+
           <div className="w-full flex justify-center items-center mt-2">
             <p className="text-center text-stone-700 text-base md:text-lg font-normal font-['Hanken_Grotesk'] leading-relaxed max-w-2xl">
-              Acreditamos que nossos animais de estimação merecem o mesmo nível de
-              cuidado orgânico e saudável que buscamos para nós mesmos. O Amigo
-              Verde nasceu do desejo de criar um refúgio de bem-estar onde a
-              biologia natural do animal é respeitada e celebrada em cada serviço
-              que prestamos.
+              Acreditamos que nossos animais de estimação merecem o mesmo nível
+              de cuidado orgânico e saudável que buscamos para nós mesmos. O
+              Amigo Verde nasceu do desejo de criar um refúgio de bem-estar onde
+              a biologia natural do animal é respeitada e celebrada em cada
+              serviço que prestamos.
             </p>
           </div>
-          <div className="w-full h-62.5 sm:h-87.5 md:h-105 flex justify-center items-center mt-4">
-            <img src={DogImage} className="w-full h-full object-cover rounded-2xl" alt="" />
+          <div className="w-full h-40 sm:h-87.5 md:h-105 flex justify-center items-center mt-4">
+            <img
+              src={Proposito}
+              className="w-full h-full object-cover rounded-2xl"
+              alt=""
+            />
           </div>
         </motion.div>
+      </section>
+      <section className="w-full px-6 py-28 md:px-16 flex flex-col justify-center items-center overflow-hidden">
+        <div className="w-full max-w-6xl flex flex-col justify-center items-center gap-16">
+          
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="w-full flex text-center flex-col justify-center items-center gap-3"
+          >
+            <h2 className="text-stone-900 text-3xl font-semibold font-['Quicksand'] md:text-4xl">
+              O que dizem nossas famílias
+            </h2>
+          </motion.div>
+
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 mt-8">
+            
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="flex flex-col items-center"
+            >
+              <div className="w-14 h-14 flex justify-center items-center rounded-full bg-[#d8fac9] shadow-sm z-10 -mb-7">
+                <MessageSquareQuote className="text-[#154212] size-7" />
+              </div>
+              
+              <div className="relative flex flex-col items-center text-center gap-6 p-8 pt-12 shadow-xl rounded-2xl bg-stone-50 border border-stone-100 overflow-hidden w-full h-full">
+                <BorderBeam
+                  duration={4}
+                  size={300}
+                  className="from-transparent via-green-500 to-transparent"
+                />
+                <p className="text-stone-700 font-['Hanken_Grotesk'] text-lg italic leading-relaxed z-10">
+                  "A pelagem do meu Golden Retriever mudou completamente depois
+                  que começamos o spa orgânico. O ambiente é tão calmo que ele
+                  entra abanando o rabo, algo que nunca aconteceu em outros
+                  lugares."
+                </p>
+                
+                <div className="w-full flex justify-center items-center gap-4 mt-auto z-10">
+                  <AvatarCircles avatarUrls={[{ imageUrl: female }]} />
+                  <div className="flex flex-col text-left">
+                    <span className="text-stone-900 font-semibold font-['Quicksand'] text-sm">
+                      Marcela Carvalho
+                    </span>
+                    <span className="text-stone-500 font-['Hanken_Grotesk'] text-xs">
+                      Cliente da Clínica
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+              className="flex flex-col items-center"
+            >
+              <div className="w-14 h-14 flex justify-center items-center rounded-full bg-[#d8fac9] shadow-sm z-10 -mb-7">
+                <MessageSquareQuote className="text-[#154212] size-7" />
+              </div>
+              
+              <div className="relative flex flex-col items-center text-center gap-6 p-8 pt-12 shadow-xl rounded-2xl bg-stone-50 border border-stone-100 w-full h-full">
+                <p className="text-stone-700 font-['Hanken_Grotesk'] text-lg italic leading-relaxed z-10">
+                  "Saber que a clínica usa abordagens naturais e preventivas me dá muita paz. 
+                  A veterinária explicou tudo com tanta paciência e carinho, recomendo de olhos fechados!"
+                </p>
+                
+                <div className="w-full flex justify-center items-center gap-4 mt-auto z-10">
+                  <AvatarCircles avatarUrls={[{ imageUrl: male }]} />
+                  <div className="flex flex-col text-left">
+                    <span className="text-stone-900 font-semibold font-['Quicksand'] text-sm">
+                      Carlos Silva
+                    </span>
+                    <span className="text-stone-500 font-['Hanken_Grotesk'] text-xs">
+                      Clientes da Clínica
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
       </section>
     </main>
   );
