@@ -16,7 +16,7 @@ function Header() {
     "absolute -bottom-1 left-0 w-full h-0.5 bg-lime-950 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left";
 
   return (
-    <MegaMenu className="border-2 ">
+    <MegaMenu className="border-b ">
       <NavbarBrand as={Link} to="/">
         <img
           alt="Amigo Verde Logo"
