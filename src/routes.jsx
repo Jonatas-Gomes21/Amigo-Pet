@@ -6,6 +6,7 @@ import SobreNos from "./pages/SobreNos";
 import Agendamento from "./pages/Agendamento";
 import Servicos from "./pages/Servicos";
 import ScrollToTop from "./components/ScrollToTop";
+
 function RouterApp() {
   return (
     <BrowserRouter>
