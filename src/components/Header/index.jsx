@@ -29,7 +29,7 @@ function Header() {
       </NavbarBrand>
 
       <div className="order-2 hidden items-center md:flex">
-        <Link to="/agendar">
+        <Link to="/Agendamento">
           <Button className="rounded-full bg-[#154212] hover:bg-[#0f310d] transition-all cursor-pointer gap-1 flex items-center">
             <span className="text-sm font-['Hanken_Grotesk']">
               Agendar Serviço
@@ -42,7 +42,7 @@ function Header() {
       <NavbarToggle />
 
       <NavbarCollapse>
-        <Link to={"/servicos"} className={navLinkClass}>
+        <Link to={"/Agendamento"} className={navLinkClass}>
           Serviços
           <span className={underlineClass}></span>
         </Link>
