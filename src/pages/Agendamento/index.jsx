@@ -18,10 +18,30 @@ import { Calendar } from "@/components/ui/calendar";
 import { BsWhatsapp } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { ScrollProgress } from "../../components/ui/scroll-progress";
 
 const WHATSAPP_NUMBER = "5571983144578";
 
-const HORARIOS = ["09:00", "10:00", "11:30", "14:00", "15:30", "17:00"];
+// 🕐 Horários de dias úteis e sábado
+// Mude disponivel: false para bloquear um horário específico
+const HORARIOS_SEMANA = [
+  { hora: "09:00", disponivel: true },
+  { hora: "10:00", disponivel: false },
+  { hora: "11:30", disponivel: true },
+  { hora: "14:00", disponivel: false },
+  { hora: "15:30", disponivel: true },
+  { hora: "17:00", disponivel: true },
+];
+
+// 📅 Sábados: somente horários até as 12h
+const HORARIOS_SABADO = [
+  { hora: "09:00", disponivel: true },
+  { hora: "10:00", disponivel: true },
+  { hora: "11:00", disponivel: true },
+];
+
+const isSabado = (d) => d?.getDay() === 6;
+const isDomingo = (d) => d?.getDay() === 0;
 
 const SERVICO_LABELS = {
   banho_tosa: "🛁 Banho e Tosa",
@@ -98,6 +118,19 @@ function Agendamento() {
   const [animalCustom, setAnimalCustom] = useState("");
   const [tentouEnviar, setTentouEnviar] = useState(false);
   const [enviado, setEnviado] = useState(false);
+
+  // Horários exibidos dependem do dia selecionado
+  const horariosDodia = isSabado(date) ? HORARIOS_SABADO : HORARIOS_SEMANA;
+
+  // Se o horário selecionado não existe no novo dia, limpa a seleção
+  const handleSelectDate = (d) => {
+    setDate(d);
+    const horariosNovoDia = isSabado(d) ? HORARIOS_SABADO : HORARIOS_SEMANA;
+    const horarioAindaValido = horariosNovoDia.some(
+      (h) => h.hora === horarioSelecionado && h.disponivel,
+    );
+    if (!horarioAindaValido) setHorarioSelecionado(null);
+  };
 
   const toggleServico = (id) => {
     setServicosSelecionados((prev) =>
@@ -181,6 +214,7 @@ function Agendamento() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [enviado]);
+
   if (enviado) {
     return (
       <main className="w-full min-h-screen flex flex-col justify-center items-center gap-8 bg-white px-6">
@@ -227,6 +261,7 @@ function Agendamento() {
         <link rel="canonical" href="https://seusite.com.br/agendamento" />
       </Helmet>
       <main className="w-full min-h-screen px-6 py-12 md:px-16 md:py-24 flex flex-col items-center md:items-start gap-12 bg-white">
+        <ScrollProgress className="top-0 py-0.5" />
         <section className="w-full">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -489,10 +524,16 @@ function Agendamento() {
               <Calendar
                 mode="single"
                 selected={date}
-                onSelect={setDate}
-                disabled={{ before: new Date() }}
+                onSelect={handleSelectDate}
+                disabled={(d) => d < new Date(new Date().setHours(0, 0, 0, 0)) || isDomingo(d)}
                 className="rounded-lg w-fit"
               />
+              {/* Aviso de sábado */}
+              {isSabado(date) && (
+                <p className="text-xs text-amber-600 font-['Hanken_Grotesk'] text-center bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
+                  ⏰ Aos sábados atendemos até as 12h
+                </p>
+              )}
             </div>
 
             <div className="flex flex-col gap-6">
@@ -502,20 +543,42 @@ function Agendamento() {
                   Horários Disponíveis
                 </h3>
               </div>
+
+              {/* Grade de horários com status disponível/ocupado */}
               <div className="grid grid-cols-3 gap-3">
-                {HORARIOS.map((hora) => (
+                {horariosDodia.map(({ hora, disponivel }) => (
                   <button
                     key={hora}
-                    onClick={() => setHorarioSelecionado(hora)}
+                    onClick={() => disponivel && setHorarioSelecionado(hora)}
+                    disabled={!disponivel}
+                    title={disponivel ? `Agendar às ${hora}` : "Horário indisponível"}
                     className={`py-3 px-4 rounded-lg font-medium font-['Hanken_Grotesk'] transition-all duration-300 border ${
-                      horarioSelecionado === hora
-                        ? "bg-[#154212] text-white border-[#154212] shadow-md"
-                        : "bg-white text-stone-600 border-stone-200 hover:border-lime-700 hover:text-lime-900"
+                      !disponivel
+                        ? "bg-stone-100 text-stone-300 border-stone-200 cursor-not-allowed line-through"
+                        : horarioSelecionado === hora
+                          ? "bg-[#154212] text-white border-[#154212] shadow-md cursor-pointer"
+                          : "bg-white text-stone-600 border-stone-200 hover:border-lime-700 hover:text-lime-900 cursor-pointer"
                     }`}
                   >
                     {hora}
                   </button>
                 ))}
+              </div>
+
+              {/* Legenda */}
+              <div className="flex items-center gap-5 flex-wrap">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-[#154212]" />
+                  <span className="text-xs text-stone-500 font-['Hanken_Grotesk']">Selecionado</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="w-3 h-3 rounded-full border border-stone-300 bg-white" />
+                  <span className="text-xs text-stone-500 font-['Hanken_Grotesk']">Disponível</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-stone-200" />
+                  <span className="text-xs text-stone-500 font-['Hanken_Grotesk']">Ocupado</span>
+                </div>
               </div>
             </div>
           </motion.div>
