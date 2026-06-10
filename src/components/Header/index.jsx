@@ -22,6 +22,8 @@ function Header() {
           alt="Amigo Verde Logo"
           src="/Icon.svg"
           className="mr-2 size-5 sm:h-9"
+          width="20" 
+          height="20"
         />
         <span className="self-center whitespace-nowrap text-2xl font-bold font-['Quicksand'] text-lime-950">
           Amigo Pet
@@ -42,10 +44,6 @@ function Header() {
       <NavbarToggle />
 
       <NavbarCollapse>
-        <Link to={"/Agendamento"} className={navLinkClass}>
-          Serviços
-          <span className={underlineClass}></span>
-        </Link>
 
         <Link to={"/sobrenos"} className={navLinkClass}>
           Sobre Nós
@@ -54,6 +52,11 @@ function Header() {
 
         <Link to={"/contato"} className={navLinkClass}>
           Contato
+          <span className={underlineClass}></span>
+        </Link>
+        
+        <Link to={"/faq"} className={navLinkClass}>
+          FAQ
           <span className={underlineClass}></span>
         </Link>
       </NavbarCollapse>
