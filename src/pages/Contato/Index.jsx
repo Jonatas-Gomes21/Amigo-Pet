@@ -126,7 +126,7 @@ function Contato() {
             initial={{ opacity: 0, x: -24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="w-full px-8 py-10 bg-white rounded-2xl shadow-[0px_4px_24px_0px_rgba(45,90,39,0.06)] outline outline-1 outline-offset-[-1px] outline-stone-200 flex flex-col gap-2"
+            className="w-full px-8 py-10 bg-white rounded-2xl shadow-[0px_4px_24px_0px_rgba(45,90,39,0.06)] outline -outline-offset-1 outline-stone-200 flex flex-col gap-2"
           >
             <div className="flex flex-col gap-1 pb-4">
               <h2 className="text-lime-950 text-xl font-bold font-['Quicksand']">
