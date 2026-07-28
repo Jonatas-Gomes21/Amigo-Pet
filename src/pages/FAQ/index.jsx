@@ -12,7 +12,7 @@ import { motion } from "framer-motion"
 import { ScrollProgress } from "../../components/ui/scroll-progress"
 import { Link } from "react-router-dom"
 
-function FAQSection({ title, description, icon: Icon, iconBg, iconColor, questions, reversed, image }) {
+function FAQSection({ title, description, icon: Icon, iconBg, iconColor, questions, reversed, image, imageAlt }) {
   return (
     <motion.section 
       initial={{ opacity: 0, y: 50 }} 
@@ -24,7 +24,7 @@ function FAQSection({ title, description, icon: Icon, iconBg, iconColor, questio
       <div className={`flex flex-col gap-6 md:col-span-2 lg:col-span-1 ${reversed ? "md:order-2" : ""}`}>
         <div className="w-full inline-flex justify-start items-center gap-4">
           <div className={`w-10 h-10 ${iconBg} rounded-full flex justify-center items-center shrink-0`}>
-            <Icon className={`w-5 h-5 ${iconColor}`} />
+            <Icon className={`w-5 h-5 ${iconColor}`} aria-hidden="true" />
           </div>
           <h2 className="text-lime-950 text-3xl font-semibold font-['Quicksand']">{title}</h2>
         </div>
@@ -36,7 +36,8 @@ function FAQSection({ title, description, icon: Icon, iconBg, iconColor, questio
         <div className="w-full h-64 relative mt-2 overflow-hidden rounded-3xl shadow-2xl">
           <img
             src={image}
-            alt={`Ilustração da seção ${title}`}
+            alt={imageAlt}
+            loading="lazy"
             className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
           />
         </div>
@@ -52,21 +53,6 @@ function FAQSection({ title, description, icon: Icon, iconBg, iconColor, questio
 }
 
 function FAQ() {
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Como funcionam os produtos orgânicos para pets?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Nossos produtos são feitos com ingredientes 100% naturais, sem conservantes artificiais...",
-        },
-      },
-    ],
-  }
-
   const serviceQuestions = [
     {
       id: 1,
@@ -121,6 +107,21 @@ function FAQ() {
     },
   ]
 
+  const allQuestions = [...serviceQuestions, ...schedulingQuestions, ...pharmacyQuestions]
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: allQuestions.map((q) => ({
+      "@type": "Question",
+      name: q.title,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: q.content,
+      },
+    })),
+  }
+
   return (
     <>
       <Helmet>
@@ -159,7 +160,6 @@ function FAQ() {
           </div>
         </motion.div>
 
-        
         <FAQSection
           title="Serviços & Tratamentos"
           description="Dúvidas sobre banho terapêutico, aromaterapia pet e cronograma de cuidados orgânicos."
@@ -168,6 +168,7 @@ function FAQ() {
           iconColor="text-[#9DD090]"
           questions={serviceQuestions}
           image={Shower}
+          imageAlt="Banho terapêutico orgânico para pets"
         />
 
         <FAQSection
@@ -178,6 +179,7 @@ function FAQ() {
           iconColor="text-[#4F6A46]"
           questions={schedulingQuestions}
           image={Agendamento}
+          imageAlt="Agendamento online de serviços para pets"
           reversed
         />
 
@@ -189,9 +191,9 @@ function FAQ() {
           iconColor="text-emerald-700"
           questions={pharmacyQuestions}
           image={Farmacia}
+          imageAlt="Produtos orgânicos e naturais para pets"
         />
 
-        
         <motion.section 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -210,15 +212,18 @@ function FAQ() {
             </p>
           </div>
           
-          <Link to={"/contato"}>
-            <Button variant="outline" className="group bg-[#154212] border-none rounded-full hover:bg-[#1a5216] px-6 py-6 flex items-center gap-3 transition-colors duration-300">
+          <Button
+            asChild
+            variant="outline"
+            className="group bg-[#154212] border-none rounded-full hover:bg-[#1a5216] px-6 py-6 flex items-center gap-3 transition-colors duration-300 cursor-pointer"
+          >
+            <Link to="/contato">
               <span className="text-white text-base font-normal font-['Hanken_Grotesk']">
                 Entrar em Contato
               </span>
-            
-              <FaArrowRight className="text-white w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" />
-            </Button>
-          </Link>
+              <FaArrowRight className="text-white w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+            </Link>
+          </Button>
         </motion.section>
         
       </main>
