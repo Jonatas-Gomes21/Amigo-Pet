@@ -32,9 +32,6 @@ function Home() {
   const diferencialCardClass =
     "flex flex-col items-center md:items-start text-center md:text-left gap-4 p-4 md:p-8 shadow-xl rounded-xl bg-white";
 
-  const depoimentCardclass =
-    "flex flex-col items-center text-center gap-4 p-4 md:p-8 shadow-xl rounded-xl bg-stone-600/15 md:bg-stone-600/20";
-
   return (
     <>
       <Helmet>
@@ -109,8 +106,9 @@ function Home() {
             <div className="w-full min-h-87.5 md:max-h-180 md:max-w-138 rounded-2xl overflow-hidden shadow-lg p-2 bg-stone-50">
               <img
                 src={DogImage}
-                alt="Cachorros felizes e saudáveis do Amigo Verde"
+                alt="Cachorros felizes e saudáveis do Amigo Pet"
                 className="w-full h-full object-cover rounded-xl"
+                fetchPriority="high"
               />
             </div>
           </motion.section>
@@ -224,7 +222,7 @@ function Home() {
               </div>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-1 gap-12 w-full mt-12">
+            <div className="grid grid-cols-1 gap-12 w-full mt-12">
               <motion.article
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -233,11 +231,12 @@ function Home() {
                 className="w-full flex flex-col md:flex-row bg-[#FDFBF9] rounded-3xl overflow-hidden shadow-lg border border-stone-100"
               >
                 <div className="w-full md:w-3/5 p-4 md:p-6">
-                  <div className="w-full h-80 md:h-112.5 overflow-hidden rounded-2xl border-2 border-dashed border-blue-400 p-2 bg-stone-50">
+                  <div className="w-full h-80 md:h-112.5 overflow-hidden rounded-2xl p-2 bg-stone-50 transition-transform duration-500 hover:scale-105">
                     <img
                       src={BanhoImage}
                       alt="Veterinária banhando um cachorro Golden Retriever"
-                      className="w-full h-full object-cover rounded-xl"
+                      className="w-full h-full object-cover rounded-xl "
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -338,13 +337,14 @@ function Home() {
                       </button>
                     </Link>
                   </div>
-                </div>
+                </div> 
                 <div className="w-full md:w-3/5 p-4 md:p-6 order-1 md:order-2">
-                  <div className="w-full h-80 md:h-112.5 overflow-hidden rounded-2xl border-2 border-dashed border-blue-400 p-2 bg-stone-50">
+                  <div className="w-full h-80 md:h-112.5 overflow-hidden rounded-2xl p-2 bg-stone-50 transition-transform duration-500 hover:scale-105">
                     <img
                       src={Clinica}
                       alt="Veterinário examinando um pet com cuidado"
                       className="w-full h-full object-cover rounded-xl"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -358,11 +358,12 @@ function Home() {
                 className="w-full flex flex-col md:flex-row bg-[#FDFBF9] rounded-3xl overflow-hidden shadow-lg border border-stone-100"
               >
                 <div className="w-full md:w-3/5 p-4 md:p-6">
-                  <div className="w-full h-80 md:h-112.5 overflow-hidden rounded-2xl border-2 border-dashed border-blue-400 p-2 bg-stone-50">
+                  <div className="w-full h-80 md:h-112.5 overflow-hidden rounded-2xl p-2 bg-stone-50 transition-transform duration-500 hover:scale-105">
                     <img
                       src={Hotel}
                       alt="Cachorros socializando felizes na creche"
                       className="w-full h-full object-cover rounded-xl"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -404,7 +405,7 @@ function Home() {
                   </ul>
 
                   <div className="mt-4">
-                    <button className="inline-flex items-center justify-center border border-[#1A2E20] text-[#1A2E20] hover:bg-[#1A2E20] hover:text-white rounded-full px-7 py-3 text-sm font-semibold font-['Hanken_Grotesk'] transition-colors duration-300">
+                    <button type="button" className="inline-flex items-center justify-center border border-[#1A2E20] text-[#1A2E20] hover:bg-[#1A2E20] hover:text-white rounded-full px-7 py-3 text-sm font-semibold font-['Hanken_Grotesk'] transition-colors duration-300">
                       Ver Instalações
                     </button>
                   </div>
@@ -432,7 +433,7 @@ function Home() {
               <p className="text-center text-stone-700 text-base md:text-lg font-normal font-['Hanken_Grotesk'] leading-relaxed max-w-2xl">
                 Acreditamos que nossos animais de estimação merecem o mesmo
                 nível de cuidado orgânico e saudável que buscamos para nós
-                mesmos. O Amigo Verde nasceu do desejo de criar um refúgio de
+                mesmos. O <strong>Amigo Pet</strong> nasceu do desejo de criar um refúgio de
                 bem-estar onde a biologia natural do animal é respeitada e
                 celebrada em cada serviço que prestamos.
               </p>
@@ -441,7 +442,8 @@ function Home() {
               <img
                 src={Proposito}
                 className="w-full h-full object-cover rounded-2xl"
-                alt=""
+                role="presentation"
+                loading="lazy"
               />
             </div>
           </motion.div>
@@ -511,6 +513,11 @@ function Home() {
                 </div>
 
                 <div className="relative flex flex-col items-center text-center gap-6 p-8 pt-12 shadow-xl rounded-2xl bg-stone-50 border border-stone-100 w-full h-full">
+                  <BorderBeam
+                    duration={4}
+                    size={300}
+                    className="from-transparent via-green-500 to-transparent"
+                  />
                   <p className="text-stone-700 font-['Hanken_Grotesk'] text-lg italic leading-relaxed z-10">
                     "Saber que a clínica usa abordagens naturais e preventivas
                     me dá muita paz. A veterinária explicou tudo com tanta
@@ -524,7 +531,7 @@ function Home() {
                         Carlos Silva
                       </span>
                       <span className="text-stone-500 font-['Hanken_Grotesk'] text-xs">
-                        Clientes da Clínica
+                        Cliente da Clínica
                       </span>
                     </div>
                   </div>
