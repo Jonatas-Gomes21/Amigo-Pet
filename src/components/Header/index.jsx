@@ -50,10 +50,10 @@ function Header() {
           <span className={underlineClass}></span>
         </Link>
 
-        <Link to={"/contato"} className={navLinkClass}>
+        {/* <Link to={"/contato"} className={navLinkClass}>
           Contato
           <span className={underlineClass}></span>
-        </Link>
+        </Link> */}
         
         <Link to={"/faq"} className={navLinkClass}>
           FAQ

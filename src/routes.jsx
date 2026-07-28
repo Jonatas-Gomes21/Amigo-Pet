@@ -8,7 +8,7 @@ const Home = lazy(() => import("./pages/Home"));
 const SobreNos = lazy(() => import("./pages/SobreNos"));
 const Agendamento = lazy(() => import("./pages/Agendamento"));
 const Servicos = lazy(() => import("./pages/Servicos"));
-const Contato = lazy(() => import("./pages/Contato"));
+// const Contato = lazy(() => import("./pages/Contato"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 
 function RouterApp() {
@@ -22,7 +22,7 @@ function RouterApp() {
           <Route path="/" element={<Home />} />
           <Route path="/servicos" element={<Servicos />} />
           <Route path="/sobrenos" element={<SobreNos />} />
-          <Route path="/contato" element={<Contato />} />
+          {/* <Route path="/contato" element={<Contato />} /> */}
           <Route path="/agendamento" element={<Agendamento />} />
           <Route path="/faq" element={<FAQ />} />
         </Routes>
