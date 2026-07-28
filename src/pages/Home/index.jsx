@@ -16,13 +16,13 @@ import {
   House,
   Sprout,
 } from "lucide-react";
-import DogImage from "../../assets/Dogs.png";
-import Proposito from "../../assets/proposito.png";
-import female from "../../assets/female.png";
-import male from "../../assets/male.png";
-import BanhoImage from "../../assets/Banho.png";
-import Clinica from "../../assets/Clinica.png";
-import Hotel from "../../assets/Hotel.png";
+import DogImage from "../../assets/Dogs.webp";
+import Proposito from "../../assets/proposito.webp";
+import female from "../../assets/female.webp";
+import male from "../../assets/male.webp";
+import BanhoImage from "../../assets/Banho.webp";
+import Clinica from "../../assets/Clinica.webp";
+import Hotel from "../../assets/Hotel.webp";
 import { ScrollProgress } from "../../components/ui/scroll-progress";
 import { AvatarCircles } from "@/components/ui/avatar-circles";
 import { BorderBeam } from "@/components/ui/border-beam";
@@ -85,9 +85,9 @@ function Home() {
 
               <div className="w-full flex flex-col sm:flex-row justify-center gap-3 md:justify-start md:gap-4">
                 <Buttonsmenu>
-                  <span className="text-sm font-['Hanken_Grotesk'] font-medium">
+                  <Link to={"/contato"} className="text-sm font-['Hanken_Grotesk'] font-medium">
                     Agende uma Visita
-                  </span>
+                  </Link>
                   <ArrowRight className="size-5" />
                 </Buttonsmenu>
 
