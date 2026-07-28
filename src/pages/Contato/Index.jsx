@@ -15,8 +15,8 @@ const CONTACT_CARDS = [
     icon: <FaPhoneAlt className="text-white size-4" />,
     titulo: "Telefone",
     descricao: "Para assuntos urgentes e agendamentos diretos.",
-    acaoTexto: "(11) 99999-9999",
-    acaoHref: "tel:+551199999999",
+    acaoTexto: "(71) 98314-4578",
+    acaoHref: "tel:+5571983144578",
   },
   {
     icon: <MdEmail className="text-white size-4" />,
