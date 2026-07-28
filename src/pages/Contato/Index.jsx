@@ -66,8 +66,6 @@ function ContactCard({ icon, titulo, descricao, acaoTexto, acaoHref }) {
     </div>
   );
 }
-
-// Card FAQ — fundo verde escuro, igual à imagem
 function FaqCard() {
   return (
     <div className="w-full px-6 py-5 bg-[#1a3a17] rounded-2xl flex flex-col gap-2">
@@ -106,7 +104,6 @@ function Contato() {
       <main className="w-full px-6 py-12 md:px-16 md:py-24 flex flex-col items-center gap-12 bg-white">
         <ScrollProgress className="top-0 py-0.5" />
 
-        {/* Cabeçalho */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -123,10 +120,8 @@ function Contato() {
           </p>
         </motion.div>
 
-        {/* Conteúdo principal */}
         <section className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
 
-          {/* Card do formulário */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             animate={{ opacity: 1, x: 0 }}
@@ -144,14 +139,12 @@ function Contato() {
             <Inputcontact />
           </motion.div>
 
-          {/* Painel lateral de informações */}
           <motion.div
             initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
             className="flex flex-col gap-3"
           >
-            {/* Cards de contato */}
             {CONTACT_CARDS.map((card, i) => (
               <motion.div
                 key={card.titulo}
@@ -163,7 +156,6 @@ function Contato() {
               </motion.div>
             ))}
 
-            {/* Card FAQ */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -174,7 +166,6 @@ function Contato() {
           </motion.div>
         </section>
 
-        {/* Seção do mapa — largura total */}
         <motion.section
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -201,7 +192,6 @@ function Contato() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-            {/* Card flutuante sobre o mapa */}
             <div className="absolute bottom-4 left-4 z-10 bg-white rounded-2xl shadow-lg px-5 py-4 flex flex-col gap-2 max-w-56">
               <div className="flex items-center gap-2">
                 <div className="size-7 bg-[#154212] rounded-full flex items-center justify-center shrink-0">

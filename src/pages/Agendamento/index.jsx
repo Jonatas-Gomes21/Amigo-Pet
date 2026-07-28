@@ -21,9 +21,6 @@ import { Helmet } from "react-helmet-async";
 import { ScrollProgress } from "../../components/ui/scroll-progress";
 
 const WHATSAPP_NUMBER = "5571983144578";
-
-// 🕐 Horários de dias úteis e sábado
-// Mude disponivel: false para bloquear um horário específico
 const HORARIOS_SEMANA = [
   { hora: "09:00", disponivel: true },
   { hora: "10:00", disponivel: false },
@@ -32,8 +29,6 @@ const HORARIOS_SEMANA = [
   { hora: "15:30", disponivel: true },
   { hora: "17:00", disponivel: true },
 ];
-
-// 📅 Sábados: somente horários até as 12h
 const HORARIOS_SABADO = [
   { hora: "09:00", disponivel: true },
   { hora: "10:00", disponivel: true },
@@ -44,9 +39,9 @@ const isSabado = (d) => d?.getDay() === 6;
 const isDomingo = (d) => d?.getDay() === 0;
 
 const SERVICO_LABELS = {
-  banho_tosa: "🛁 Banho e Tosa",
-  clinica: "🩺 Clínica Integrativa",
-  hotel: "🏠 Hotel e Creche",
+  banho_tosa: "Banho e Tosa",
+  clinica: "Clínica Integrativa",
+  hotel: "Hotel e Creche",
 };
 
 const SERVICO_NOMES = {
@@ -118,11 +113,7 @@ function Agendamento() {
   const [animalCustom, setAnimalCustom] = useState("");
   const [tentouEnviar, setTentouEnviar] = useState(false);
   const [enviado, setEnviado] = useState(false);
-
-  // Horários exibidos dependem do dia selecionado
   const horariosDodia = isSabado(date) ? HORARIOS_SABADO : HORARIOS_SEMANA;
-
-  // Se o horário selecionado não existe no novo dia, limpa a seleção
   const handleSelectDate = (d) => {
     setDate(d);
     const horariosNovoDia = isSabado(d) ? HORARIOS_SABADO : HORARIOS_SEMANA;
@@ -142,9 +133,9 @@ function Agendamento() {
     animalSilvestre === "outro_custom" ? animalCustom : animalSilvestre;
 
   const petLabels = {
-    cachorro: "🐶 Cachorro",
-    gato: "🐱 Gato",
-    outro: `🦜 Silvestre${nomeAnimalSilvestre ? ` — ${nomeAnimalSilvestre}` : ""}`,
+    cachorro: "Cachorro",
+    gato: "Gato",
+    outro: `Silvestre${nomeAnimalSilvestre ? ` — ${nomeAnimalSilvestre}` : ""}`,
   };
 
   const petNomes = {
@@ -528,7 +519,6 @@ function Agendamento() {
                 disabled={(d) => d < new Date(new Date().setHours(0, 0, 0, 0)) || isDomingo(d)}
                 className="rounded-lg w-fit"
               />
-              {/* Aviso de sábado */}
               {isSabado(date) && (
                 <p className="text-xs text-amber-600 font-['Hanken_Grotesk'] text-center bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
                   ⏰ Aos sábados atendemos até as 12h
@@ -544,7 +534,6 @@ function Agendamento() {
                 </h3>
               </div>
 
-              {/* Grade de horários com status disponível/ocupado */}
               <div className="grid grid-cols-3 gap-3">
                 {horariosDodia.map(({ hora, disponivel }) => (
                   <button
@@ -564,8 +553,6 @@ function Agendamento() {
                   </button>
                 ))}
               </div>
-
-              {/* Legenda */}
               <div className="flex items-center gap-5 flex-wrap">
                 <div className="flex items-center gap-1.5">
                   <div className="w-3 h-3 rounded-full bg-[#154212]" />

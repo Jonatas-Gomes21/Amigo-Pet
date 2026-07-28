@@ -12,7 +12,6 @@ import { BsWhatsapp } from "react-icons/bs";
 import { ChevronRight, Send } from "lucide-react";
 import { motion } from "framer-motion";
 
-// ✏️ Ajuste os assuntos conforme necessário
 const ASSUNTOS = [
   { value: "agendamento", label: "Agendamento" },
   { value: "duvidas", label: "Dúvidas sobre serviços" },
