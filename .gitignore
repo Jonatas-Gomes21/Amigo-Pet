@@ -25,3 +25,6 @@ dist-ssr
 
 .vercel
 .env*
+
+# Binario local do Claude Code (nao versionar)
+claude.exe
