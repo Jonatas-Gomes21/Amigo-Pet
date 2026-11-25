@@ -15,8 +15,8 @@ const CONTACT_CARDS = [
     icon: <FaPhoneAlt className="text-white size-4" />,
     titulo: "Telefone",
     descricao: "Para assuntos urgentes e agendamentos diretos.",
-    acaoTexto: "(71) 98314-4578",
-    acaoHref: "tel:+5571983144578",
+    acaoTexto: "(71) 99999-9999",
+    acaoHref: "tel:+5571999999999",
   },
   {
     icon: <MdEmail className="text-white size-4" />,
@@ -30,7 +30,7 @@ const CONTACT_CARDS = [
     titulo: "WhatsApp",
     descricao: "Atendimento rápido e envio de fotos do seu pet.",
     acaoTexto: "Iniciar Conversa",
-    acaoHref: "https://wa.me/5571983144578",
+    acaoHref: "https://wa.me/5571999999999",
   },
   {
     icon: <FaInstagram className="text-white size-4" />,
